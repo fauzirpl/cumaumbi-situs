@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cuma Umbi · game naratif tentang CPNS di loket kelurahan</title>
+<meta name="description" content="Cuma Umbi, game naratif pixel art tentang setahun pertama jadi CPNS di loket kelurahan. Buatan CloudID Studio, segera di Steam dan Google Play.">
+<link rel="canonical" href="https://cumaumbi.cloudidstudio.biz.id/">
+<meta name="theme-color" content="#F7F6F1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121614" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Cuma Umbi">
+<meta property="og:title" content="Cuma Umbi">
+<meta property="og:description" content="Cuma Umbi, game naratif pixel art tentang setahun pertama jadi CPNS di loket kelurahan. Buatan CloudID Studio, segera di Steam dan Google Play.">
+<meta property="og:url" content="https://cumaumbi.cloudidstudio.biz.id/">
+<meta property="og:image" content="https://cumaumbi.cloudidstudio.biz.id/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ilustrasi ruang loket kelurahan: warga mengantre di kursi tunggu, petugas berseragam khaki menstempel berkas di meja, rekannya membawa kotak arsip di belakang.">
+<meta property="og:locale" content="id_ID">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="192x192" href="img/ikon-192.png">
+<link rel="apple-touch-icon" href="img/ikon-180.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "VideoGame", "name": "Cuma Umbi", "url": "https://cumaumbi.cloudidstudio.biz.id/", "image": "https://cumaumbi.cloudidstudio.biz.id/img/og.jpg", "description": "Robert dulu rajin nyinyir soal pegawai kelurahan di kolom komentar. Habis kena layoff, dia iseng ikut tes CPNS dan ternyata lolos. Sekarang dia yang duduk di balik meja loket, melayani warga yang dulu senasib dengannya.", "inLanguage": "id", "gamePlatform": ["Windows", "Android"], "genre": ["Narrative", "Simulation"], "author": {"@type": "Organization", "name": "CloudID Studio", "email": "fauzi@cloudcode.id"}}</script>
+<style>
+:root {
+  --kertas: #F7F6F1; --kertas-2: #EEEBE0; --tinta: #1D2A4A; --pudar: #58617A; --khaki: #8C7447;
+  --cap: #B32A22; --meja: #3D5B4A; --garis: #D8D2C1; --fokus: #2F5FD0;
+  --huruf-judul: Bahnschrift, "DIN Alternate", "Avenir Next Condensed", "sans-serif-condensed", "Roboto Condensed",
+    "Arial Narrow", system-ui, sans-serif;
+  --huruf-isi: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif;
+  --huruf-mono: ui-monospace, "Cascadia Mono", Consolas, "SFMono-Regular", Menlo, "Roboto Mono", monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --kertas: #121614; --kertas-2: #1A201D; --tinta: #E8E4D8; --pudar: #A5AC9D; --khaki: #CDB27C;
+    --cap: #E4594D; --meja: #8DBA9F; --garis: #2D3530; --fokus: #8FB0FF;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+body { margin: 0; background: var(--kertas); color: var(--tinta); font: 400 17px/1.65 var(--huruf-isi); }
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--meja); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--fokus); outline-offset: 3px; }
+h1, h2 { font-family: var(--huruf-judul); text-wrap: balance; }
+h2 { font-size: 1.8rem; font-weight: 700; line-height: 1.15; margin: 0 0 18px; }
+.isi { max-width: 1120px; margin-inline: auto; padding-inline: 20px; }
+.label, dt, figcaption, .atas, .kecil, .cap { font-family: var(--huruf-mono); }
+.label { font-size: .74rem; letter-spacing: .08em; text-transform: uppercase; color: var(--khaki); margin: 0 0 8px; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.lompat { position: absolute; left: 8px; top: -60px; z-index: 10; background: var(--tinta); color: var(--kertas);
+  padding: 8px 12px; }
+.lompat:focus { top: 8px; }
+
+/* Bar atas */
+.atas { font-size: .78rem; letter-spacing: .06em; border-bottom: 1px solid var(--garis); }
+.atas-isi { display: flex; align-items: center; gap: 22px; min-height: 52px; }
+.studio { color: var(--pudar); margin-right: auto; }
+.atas nav { display: flex; gap: 20px; }
+.atas nav a { color: var(--tinta); text-decoration: none; text-transform: uppercase; }
+.atas nav a:hover { color: var(--cap); }
+.bahasa { display: flex; gap: 4px; }
+.bahasa button { font: inherit; min-height: 32px; padding: 4px 9px; border: 1px solid var(--garis); border-radius: 2px;
+  background: transparent; color: var(--pudar); cursor: pointer; }
+.bahasa button[aria-pressed="true"] { color: var(--tinta); border-color: var(--tinta); }
+
+/* Panggung: key art selebar layar, logo di dinding kosong kiri atas. Gambar selalu diskalakan menurut lebar
+   (object-fit cover dari atas), jadi posisi logo dalam cqw selalu jatuh di dinding yang sama. */
+.panggung { position: relative; container-type: inline-size; max-width: 1920px; margin-inline: auto;
+  aspect-ratio: 1536 / 880; max-height: 80vh; overflow: hidden; background: #E9DEC2;
+  border-bottom: 3px double var(--khaki); }
+.panggung .latar { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; }
+.logo { position: absolute; margin: 0; left: 6.2cqw; top: 1.8cqw; width: 27.6cqw;
+  filter: drop-shadow(0 0 .5cqw rgba(255, 248, 230, .85)) drop-shadow(.2cqw .3cqw .25cqw rgba(40, 20, 10, .45)); }
+.logo img { width: 100%; }
+@media (prefers-reduced-motion: no-preference) {
+  .logo { animation: cap .5s cubic-bezier(.2, .9, .3, 1.25) .2s both; }
+  @keyframes cap {
+    0% { opacity: 0; transform: scale(1.3) rotate(-4deg); }
+    65% { opacity: 1; transform: scale(.97) rotate(.4deg); }
+    100% { transform: none; }
+  }
+}
+
+/* Pembuka */
+.pembuka { display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, 340px); gap: 48px;
+  align-items: start; padding-top: 44px; }
+.slogan { font: 700 clamp(1.9rem, 4.4vw, 3.1rem)/1.08 var(--huruf-judul); margin: 0 0 18px; max-width: 19ch;
+  text-wrap: balance; }
+.pendek { font-size: 1.15rem; max-width: 58ch; margin: 0; }
+.tanda-terima { position: relative; padding: 16px 20px 16px; border: 1.5px dashed var(--khaki);
+  background: var(--kertas-2); }
+.toko { list-style: none; margin: 4px 0 14px; padding: 0; }
+.toko li { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 8px 0;
+  border-bottom: 1px dashed var(--garis); }
+.toko b { font: 700 1.25rem/1.2 var(--huruf-judul); }
+.toko span { font: .78rem var(--huruf-mono); color: var(--pudar); }
+.cap { position: absolute; right: 14px; top: 10px; margin: 0; transform: rotate(-8deg); color: var(--cap);
+  border: 3px solid var(--cap); outline: 1px solid var(--cap); outline-offset: 3px; padding: 7px 11px;
+  font-size: .9rem; font-weight: 600; line-height: 1; letter-spacing: .2em; opacity: .9; pointer-events: none; }
+.kecil { font-size: .8rem; line-height: 1.5; color: var(--pudar); margin: 0; }
+
+/* Bagian isi */
+.bagian { padding-top: 72px; }
+.dua-kolom { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 320px); gap: 48px; }
+.teks p, .teks ul { max-width: 65ch; margin: 0 0 14px; }
+.teks ul { padding-left: 1.1em; }
+.teks li { margin-bottom: 10px; }
+.teks li::marker { color: var(--cap); }
+.teks b { font-weight: 600; }
+dl.formulir { margin: 0; border-top: 1px solid var(--garis); align-self: start; }
+.dua-kolom dl.formulir { position: sticky; top: 20px; }
+.isian { display: grid; grid-template-columns: 8.5rem minmax(0, 1fr); gap: 10px; padding: 9px 0;
+  border-bottom: 1px dashed var(--garis); }
+dt { font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; color: var(--khaki); padding-top: 4px; }
+dd { margin: 0; }
+
+/* Galeri */
+.galeri { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; align-items: start; }
+.galeri figure:first-child { grid-column: span 2; grid-row: span 2; }
+figure { margin: 0; }
+.buka { display: block; border: 1px solid var(--garis); background: var(--kertas-2); }
+.buka img { width: 100%; }
+.buka:hover { border-color: var(--khaki); }
+figcaption { font-size: .78rem; line-height: 1.45; color: var(--pudar); margin-top: 7px; }
+
+/* Umbi dan studio */
+.dua-catatan { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 48px; align-items: start; }
+.memo { background: var(--kertas-2); border-left: 4px solid var(--cap); padding: 22px 24px 10px; }
+.memo h2 { font-size: 1.45rem; }
+
+/* Kontak dan kaki */
+.kontak > p, .kontak dl { max-width: 680px; }
+.kontak > p { margin: 0 0 14px; }
+.kaki { margin-top: 80px; padding-bottom: 40px; font-size: .82rem; color: var(--pudar); }
+.kaki-isi { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; padding-top: 16px;
+  border-top: 3px double var(--khaki); }
+.kaki p { margin: 0; }
+
+/* Penampil screenshot */
+#lihat { width: min(1280px, 96vw); max-width: none; padding: 0; border: 0; background: transparent;
+  color: #F2EEE3; }
+#lihat::backdrop { background: rgba(10, 12, 11, .9); }
+#lihat img { max-width: 100%; max-height: calc(100vh - 140px); max-height: calc(100dvh - 140px); width: auto;
+  margin-inline: auto; background: #000; }
+#lihat figcaption { color: #CFC9BA; font-size: .85rem; text-align: center; margin-top: 10px; }
+.lihat-tombol { display: flex; justify-content: center; gap: 10px; margin-top: 12px; }
+.lihat-tombol button { min-width: 48px; min-height: 40px; padding: 6px 14px; border: 1px solid #6B6F68;
+  border-radius: 2px; background: transparent; color: #F2EEE3; font: .85rem var(--huruf-mono); cursor: pointer; }
+.lihat-tombol button:hover { border-color: #F2EEE3; }
+
+@media (max-width: 860px) {
+  .pembuka, .dua-kolom, .dua-catatan { grid-template-columns: 1fr; gap: 32px; }
+  .dua-kolom dl.formulir { position: static; }
+  .galeri { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .galeri figure:first-child { grid-row: auto; }
+}
+@media (max-width: 560px) {
+  body { font-size: 16px; }
+  .isi { padding-inline: 16px; }
+  .atas nav { display: none; }
+  .pembuka { padding-top: 28px; }
+  .bagian { padding-top: 56px; }
+  .galeri { grid-template-columns: 1fr; }
+  .galeri figure:first-child { grid-column: auto; }
+  .isian { grid-template-columns: 7rem minmax(0, 1fr); }
+}
+</style>
+</head>
+<body>
+<a class="lompat" href="#tentang"><span data-lang="id">Langsung ke isi</span><span data-lang="en" hidden>Skip to content</span></a>
+<header class="atas">
+  <div class="atas-isi isi">
+    <span class="studio">CLOUDID STUDIO</span>
+    <nav aria-label="Navigasi">
+      <a href="#tentang"><span data-lang="id">Tentang</span><span data-lang="en" hidden>About</span></a>
+      <a href="#layar"><span data-lang="id">Screenshot</span><span data-lang="en" hidden>Screenshots</span></a>
+      <a href="#kontak"><span data-lang="id">Kontak</span><span data-lang="en" hidden>Contact</span></a>
+    </nav>
+    <div class="bahasa" role="group" aria-label="Bahasa / Language">
+      <button type="button" data-pilih="id" aria-pressed="true" title="Bahasa Indonesia">ID</button>
+      <button type="button" data-pilih="en" aria-pressed="false" title="English">EN</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="panggung" aria-label="Cuma Umbi">
+    <img class="latar" src="img/keyart-1536.webp" srcset="img/keyart-768.webp 768w, img/keyart-1536.webp 1536w"
+      sizes="100vw" width="1536" height="880" fetchpriority="high" alt="Ilustrasi ruang loket kelurahan: warga mengantre di kursi tunggu, petugas berseragam khaki menstempel berkas di meja, rekannya membawa kotak arsip di belakang.">
+    <h1 class="logo"><img src="img/logo.webp" width="960" height="556" alt="Cuma Umbi"></h1>
+  </section>
+
+  <section class="pembuka isi">
+    <div>
+      <p class="slogan"><span data-lang="id">Dari tukang nyinyir, jadi yang duduk di balik loket.</span><span data-lang="en" hidden>From comment-section critic to the one behind the counter.</span></p>
+      <p class="pendek"><span data-lang="id">Robert dulu rajin nyinyir soal pegawai kelurahan di kolom komentar. Habis kena layoff, dia iseng ikut tes CPNS dan ternyata lolos. Sekarang dia yang duduk di balik meja loket, melayani warga yang dulu senasib dengannya.</span><span data-lang="en" hidden>Robert used to trash civil servants in comment sections. After a tech layoff he takes the civil service exam on a whim, and passes. Now he's the one behind the counter of a small neighborhood office in Indonesia.</span></p>
+    </div>
+    <aside class="tanda-terima" aria-labelledby="h-tersedia">
+      <p class="label" id="h-tersedia"><span data-lang="id">Bakal ada di</span><span data-lang="en" hidden>Coming to</span></p>
+      <p class="cap" aria-hidden="true"><span data-lang="id">SEGERA</span><span data-lang="en" hidden>SOON</span></p>
+      <ul class="toko">
+        <li><b>Steam</b><span>Windows</span></li>
+        <li><b>Google Play</b><span>Android</span></li>
+      </ul>
+      <p class="kecil"><span data-lang="id">Tanggal rilis dan harga belum ditentukan. Gamenya cuma dalam bahasa Indonesia.</span><span data-lang="en" hidden>Release date and price to be announced. The game is in Indonesian only.</span></p>
+    </aside>
+  </section>
+
+  <section id="tentang" class="bagian isi" aria-labelledby="h-tentang">
+    <h2 id="h-tentang"><span data-lang="id">Tentang game</span><span data-lang="en" hidden>About the game</span></h2>
+    <div class="dua-kolom">
+      <div class="teks"><div data-lang="id"><p>Cuma Umbi adalah game naratif tentang setahun pertama seorang CPNS di Kelurahan Sumber Rejeki, kantor pelayanan kecil di kota fiktif Kota Praja Baru.</p><p>Robert, programmer startup, kena layoff lewat video call tiga belas menit. Malamnya dia nulis komentar pedas soal petugas kelurahan yang kelihatan main HP di jam kerja. Beberapa bulan kemudian dia lolos tes CPNS, pakai seragam khaki yang lipatannya masih kotak-kotak, dan disuruh duduk di loket.</p><ul><li><b>Jaga meja loket.</b> Periksa berkas warga satu per satu, pilih surat yang benar, isi kolomnya, stempel, paraf. Kalau kamu salah centang, warganya disuruh bolak-balik, dan mereka ingat.</li><li><b>Ambil keputusan kecil setiap hari.</b> Ada amplop “buat beli kopi”, titipan berkas dari kenalan atasan, dan komentar di medsos jam sebelas malam. Lebih dari lima puluh kejadian bisa muncul berbulan-bulan kemudian dari pilihan yang sudah kamu lupa.</li><li><b>Atur hidup di luar jam kantor.</b> Gaji CPNS harus cukup buat uang kos, energi habis kalau tiap malam lembur, ibu nanya kapan pulang, dan hari Sabtu bisa dipakai istirahat atau buat nebus janji.</li><li><b>Jalani setahun penuh.</b> Kamu pindah dari pelayanan ke Kesos, Ekbang, lalu Trantib. Ada puasa dan Lebaran, tujuh belasan, video viral, banjir bulan Desember, sampai wawancara evaluasi di akhir masa percobaan.</li></ul><p>Ada empat akhir cerita, dan semuanya ditentukan cara kamu kerja selama setahun, bukan satu pilihan di menit terakhir.</p></div><div data-lang="en" hidden><p>Cuma Umbi is a narrative game about a new civil servant's first year at Sumber Rejeki, a small neighborhood service office (kelurahan) in the fictional city of Kota Praja Baru, Indonesia.</p><p>Robert, a startup programmer, gets laid off over a thirteen-minute video call. That night he posts a nasty comment about a kelurahan clerk caught scrolling on his phone at work. A few months later he passes the civil service exam, puts on a khaki uniform that still has the fold creases, and gets assigned to the service counter.</p><ul><li><b>Work the counter.</b> Check each resident's documents, pick the right letter template, fill it in, stamp it and sign it. Tick the wrong box and they have to come back another day, and they remember.</li><li><b>Make small decisions every day.</b> An envelope “for coffee”, a file pushed through by your boss's acquaintance, a comment you post at 11 pm. Over fifty events can come back months later from choices you have already forgotten.</li><li><b>Manage life after office hours.</b> A trainee salary against rent, energy that runs out if you work late every night, your mother asking when you're coming home, and Saturdays you can spend resting or keeping a promise.</li><li><b>Live through a full year.</b> Rotate through four sections, from front desk service to public order: fasting month and Eid, Independence Day, a viral video, a December flood, and an evaluation interview at the end of probation.</li></ul><p>There are four endings, decided by how you worked for the whole year rather than by one last choice. The game is in Indonesian only.</p></div></div>
+      <dl class="formulir">
+        <div class="isian"><dt><span data-lang="id">Pengembang</span><span data-lang="en" hidden>Developer</span></dt><dd><span data-lang="id">CloudID Studio, Indonesia</span><span data-lang="en" hidden>CloudID Studio, Indonesia</span></dd></div>
+        <div class="isian"><dt><span data-lang="id">Platform</span><span data-lang="en" hidden>Platform</span></dt><dd>Windows, Android</dd></div>
+        <div class="isian"><dt><span data-lang="id">Rilis</span><span data-lang="en" hidden>Release</span></dt><dd><span data-lang="id">Belum ditentukan</span><span data-lang="en" hidden>To be announced</span></dd></div>
+        <div class="isian"><dt><span data-lang="id">Bahasa</span><span data-lang="en" hidden>Language</span></dt><dd><span data-lang="id">Indonesia</span><span data-lang="en" hidden>Indonesian only</span></dd></div>
+        <div class="isian"><dt><span data-lang="id">Durasi</span><span data-lang="en" hidden>Length</span></dt><dd><span data-lang="id">Sekitar 5 jam sekali tamat</span><span data-lang="en" hidden>About 5 hours per playthrough</span></dd></div>
+        <div class="isian"><dt><span data-lang="id">Genre</span><span data-lang="en" hidden>Genre</span></dt><dd><span data-lang="id">Game naratif, simulasi kerja</span><span data-lang="en" hidden>Narrative game, work sim</span></dd></div>
+        <div class="isian"><dt><span data-lang="id">Status</span><span data-lang="en" hidden>Status</span></dt><dd><span data-lang="id">Masih playtest</span><span data-lang="en" hidden>In playtesting</span></dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section id="layar" class="bagian isi" aria-labelledby="h-layar">
+    <h2 id="h-layar"><span data-lang="id">Screenshot</span><span data-lang="en" hidden>Screenshots</span></h2>
+    <div class="galeri"><figure><a class="buka" href="img/layar/loket-cek-berkas.webp"><img src="img/layar/loket-cek-berkas.webp" width="1280" height="720" loading="lazy" alt="Meja loket: periksa berkas warga sebelum dicentang."></a><figcaption><span data-lang="id">Meja loket: periksa berkas warga sebelum dicentang.</span><span data-lang="en" hidden>The counter: check each resident&#x27;s documents before ticking them off.</span></figcaption></figure><figure><a class="buka" href="img/layar/dialog-loket.webp"><img src="img/layar/dialog-loket.webp" width="1280" height="720" loading="lazy" alt="Hari pertama, Bu Ratih mengawasi dari belakang."></a><figcaption><span data-lang="id">Hari pertama, Bu Ratih mengawasi dari belakang.</span><span data-lang="en" hidden>First day, with Bu Ratih watching from behind.</span></figcaption></figure><figure><a class="buka" href="img/layar/cutscene-banjir.webp"><img src="img/layar/cutscene-banjir.webp" width="1280" height="720" loading="lazy" alt="Banjir bulan Desember."></a><figcaption><span data-lang="id">Banjir bulan Desember.</span><span data-lang="en" hidden>The December flood.</span></figcaption></figure><figure><a class="buka" href="img/layar/hp-medsos.webp"><img src="img/layar/hp-medsos.webp" width="1280" height="720" loading="lazy" alt="Malam di kos, berita soal kelurahan lewat di linimasa."></a><figcaption><span data-lang="id">Malam di kos, berita soal kelurahan lewat di linimasa.</span><span data-lang="en" hidden>Night at the boarding room; the kelurahan is in the news again.</span></figcaption></figure><figure><a class="buka" href="img/layar/surat-sp.webp"><img src="img/layar/surat-sp.webp" width="1280" height="720" loading="lazy" alt="Surat peringatan pertama."></a><figcaption><span data-lang="id">Surat peringatan pertama.</span><span data-lang="en" hidden>A first written warning.</span></figcaption></figure><figure><a class="buka" href="img/layar/ringkasan-hari.webp"><img src="img/layar/ringkasan-hari.webp" width="1280" height="720" loading="lazy" alt="Ringkasan hari dan catatan jurnal."></a><figcaption><span data-lang="id">Ringkasan hari dan catatan jurnal.</span><span data-lang="en" hidden>End-of-day summary and journal notes.</span></figcaption></figure><figure><a class="buka" href="img/layar/dialog-banjir.webp"><img src="img/layar/dialog-banjir.webp" width="1280" height="720" loading="lazy" alt="Dapur umum di posko banjir."></a><figcaption><span data-lang="id">Dapur umum di posko banjir.</span><span data-lang="en" hidden>The flood relief kitchen.</span></figcaption></figure><figure><a class="buka" href="img/layar/loket-proses-surat.webp"><img src="img/layar/loket-proses-surat.webp" width="1280" height="720" loading="lazy" alt="Pilih templat surat, isi, stempel, paraf."></a><figcaption><span data-lang="id">Pilih templat surat, isi, stempel, paraf.</span><span data-lang="en" hidden>Pick the letter template, fill it in, stamp, sign.</span></figcaption></figure><figure><a class="buka" href="img/layar/ujian-skd.webp"><img src="img/layar/ujian-skd.webp" width="1280" height="720" loading="lazy" alt="Tes CPNS di prolog."></a><figcaption><span data-lang="id">Tes CPNS di prolog.</span><span data-lang="en" hidden>The civil service exam in the prologue.</span></figcaption></figure></div>
+  </section>
+
+  <section class="bagian isi dua-catatan">
+    <div class="memo">
+      <h2><span data-lang="id">Kenapa “umbi”</span><span data-lang="en" hidden>Why “umbi”</span></h2>
+      <div class="teks"><div data-lang="id"><p>Di kalangan PNS, “umbi” itu sebutan buat pegawai paling bawah. Kerjanya nggak kelihatan dari atas, tapi hampir semua urusan warga lewat tangannya. Di awal cerita Robert pakai kata itu buat ngeles, dan di akhir tahun artinya udah geser.</p></div><div data-lang="en" hidden><p>Among Indonesian civil servants, “umbi” (a root tuber) is slang for the lowest rank: out of sight from the top, but almost every citizen's paperwork goes through their hands. Robert uses the word as an excuse early on; by the end of the year it means something else to him.</p></div></div>
+    </div>
+    <div>
+      <h2><span data-lang="id">Tentang CloudID Studio</span><span data-lang="en" hidden>About CloudID Studio</span></h2>
+      <div class="teks"><div data-lang="id"><p>CloudID Studio adalah studio satu orang dari Indonesia. Cuma Umbi dibuat dengan Godot.</p><p>Gambar, musik latar, dan suara tokoh dibuat dengan bantuan AI sebelum game dikemas (gpt-image-2, ACE-Step 1.5, ElevenLabs), lalu dipilih dan disunting pengembang. Efek suara disintesis kode. Tidak ada AI yang jalan saat game dimainkan. Semua nama, instansi, dan kejadian di game ini fiksi.</p></div><div data-lang="en" hidden><p>CloudID Studio is a one-person studio from Indonesia. Cuma Umbi is made with Godot.</p><p>Images, background music and character voices were made with AI assistance before packaging (gpt-image-2, ACE-Step 1.5, ElevenLabs), then selected and edited by the developer. Sound effects are synthesized in code. No AI runs while you play. All names, offices and events in the game are fictional.</p></div></div>
+    </div>
+  </section>
+
+  <section id="kontak" class="bagian isi kontak" aria-labelledby="h-kontak">
+    <h2 id="h-kontak"><span data-lang="id">Kontak</span><span data-lang="en" hidden>Contact</span></h2>
+    <p><span data-lang="id">Mau tanya, meliput, atau lapor bug? Kirim email saja.</span><span data-lang="en" hidden>Questions, press, or a bug report? Just send an email.</span></p>
+    <dl class="formulir">
+      <div class="isian"><dt>Email</dt><dd><a href="mailto:fauzi@cloudcode.id">fauzi@cloudcode.id</a></dd></div>
+      <div class="isian"><dt><span data-lang="id">Privasi</span><span data-lang="en" hidden>Privacy</span></dt><dd><a href="privasi.html"><span data-lang="id">Kebijakan privasi</span><span data-lang="en" hidden>Privacy policy</span></a>. <span data-lang="id">Singkatnya, game ini tidak mengumpulkan data apa pun.</span><span data-lang="en" hidden>In short, the game collects no data at all.</span></dd></div>
+    </dl>
+  </section>
+</main>
+
+<footer class="kaki isi">
+  <div class="kaki-isi">
+    <p><span data-lang="id">Cuma Umbi © CloudID Studio. Screenshot dan ilustrasi boleh dipakai untuk liputan.</span><span data-lang="en" hidden>Cuma Umbi © CloudID Studio. Screenshots and art may be used for coverage.</span></p>
+    <p><a href="privasi.html"><span data-lang="id">Kebijakan privasi</span><span data-lang="en" hidden>Privacy policy</span></a></p>
+  </div>
+</footer>
+
+<dialog id="lihat" aria-label="Screenshot">
+  <figure>
+    <img src="" alt="">
+    <figcaption></figcaption>
+  </figure>
+  <div class="lihat-tombol">
+    <button type="button" data-geser="-1"><span aria-hidden="true">&larr;</span><span class="sr"><span data-lang="id">Sebelumnya</span><span data-lang="en" hidden>Previous</span></span></button>
+    <button type="button" data-tutup><span data-lang="id">Tutup</span><span data-lang="en" hidden>Close</span></button>
+    <button type="button" data-geser="1"><span aria-hidden="true">&rarr;</span><span class="sr"><span data-lang="id">Berikutnya</span><span data-lang="en" hidden>Next</span></span></button>
+  </div>
+</dialog>
+
+<script>(function () {
+  var tombol = document.querySelectorAll("[data-pilih]");
+  function pakai(bahasa) {
+    document.querySelectorAll("[data-lang]").forEach(function (el) {
+      el.hidden = el.getAttribute("data-lang") !== bahasa;
+    });
+    tombol.forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-pilih") === bahasa)); });
+    document.documentElement.lang = bahasa;
+    try { localStorage.setItem("cumaumbi-bahasa", bahasa); } catch (e) {}
+  }
+  tombol.forEach(function (b) { b.addEventListener("click", function () { pakai(b.getAttribute("data-pilih")); }); });
+  var awal = "id";
+  try { awal = localStorage.getItem("cumaumbi-bahasa") || awal; } catch (e) {}
+  pakai(awal === "en" ? "en" : "id");
+
+  // Penampil screenshot. Tanpa JS (atau tanpa <dialog>), tautannya membuka gambar biasa.
+  var dlg = document.getElementById("lihat");
+  if (!dlg || typeof dlg.showModal !== "function") return;
+  var tautan = Array.prototype.slice.call(document.querySelectorAll("a.buka"));
+  var gambar = dlg.querySelector("img"), ket = dlg.querySelector("figcaption"), kini = 0;
+  function tampil(i) {
+    kini = (i + tautan.length) % tautan.length;
+    var a = tautan[kini];
+    gambar.src = a.getAttribute("href");
+    gambar.alt = a.querySelector("img").alt;
+    ket.innerHTML = a.parentNode.querySelector("figcaption").innerHTML;
+  }
+  tautan.forEach(function (a, i) {
+    a.addEventListener("click", function (e) { e.preventDefault(); tampil(i); dlg.showModal(); });
+  });
+  dlg.addEventListener("click", function (e) {
+    var b = e.target.closest("button");
+    if (b && b.hasAttribute("data-geser")) tampil(kini + Number(b.getAttribute("data-geser")));
+    else if ((b && b.hasAttribute("data-tutup")) || e.target === dlg) dlg.close();
+  });
+  dlg.addEventListener("keydown", function (e) {
+    if (e.key === "ArrowRight") tampil(kini + 1);
+    else if (e.key === "ArrowLeft") tampil(kini - 1);
+  });
+  dlg.addEventListener("close", function () { tautan[kini].focus(); });
+})();</script>
+</body>
+</html>
